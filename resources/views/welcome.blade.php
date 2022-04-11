@@ -8,13 +8,13 @@
     <title>What's your story?</title>
 
 
-    <link href="/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/custom.css?{{ uniqid() }}" rel="stylesheet">
+    <link href="/wys/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/wys/css/custom.css?".uniqid()) }}" rel="stylesheet">
 
 
-    <script src="/libs/jquery/dist/jquery.min.js"></script>
-    <script src="/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/libs/jquery-plugins/textcounter.min.js"></script>
+    <script src="/wys/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/wys/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/wys/libs/jquery-plugins/textcounter.min.js"></script>
 
     <script type="text/javascript">
         function setElementsHeights() {
@@ -121,7 +121,7 @@
         <div id="top-content">
         </div>
         <section class="pt-5 text-center container">
-            <img class="top-half-logo" src="/images/logo1.svg" alt="What's your story?" title="What's your story?">
+            <img class="top-half-logo" src="/wys/images/logo1.svg" alt="What's your story?" title="What's your story?">
         </section>
     </div>
 
@@ -183,7 +183,7 @@
     <nav id="nav-form-big"
          class="navbar navbar-expand-md navbar-dark bg-dark navbar-form-big justify-content-center d-none d-lg-block js-navbar-form">
         <div class="container-fluid text-center justify-content-center">
-            <img class="nav-logo-big" src="/images/logo3.svg" alt="What's your story?" title="What's your story?">
+            <img class="nav-logo-big" src="/wys/images/logo3.svg" alt="What's your story?" title="What's your story?">
         </div>
         <a href="https://kingseducation.com" id="visit-link" class="text-end pe-4">
             Visit Kings website
@@ -198,7 +198,7 @@
     <nav id="nav-form-small"
          class="navbar navbar-expand-md navbar-dark bg-dark navbar-form-small justify-content-center d-block d-lg-none js-navbar-form">
         <div class="container-fluid text-center justify-content-center">
-            <img class="nav-logo-small" src="/images/logo2.svg" alt="What's your story?" title="What's your story?">
+            <img class="nav-logo-small" src="/wys/images/logo2.svg" alt="What's your story?" title="What's your story?">
         </div>
     </nav>
 
@@ -224,7 +224,7 @@
                         </p>
                     </section>
 
-                    <img class="pt-1" src="/images/noun-profile-781943.svg" alt="Profile" title="Profile">
+                    <img class="pt-1" src="/wys/images/noun-profile-781943.svg" alt="Profile" title="Profile">
                     <div class="form-part-title">About you</div>
                     <div class="row justify-content-md-center">
                         <div class="col-12 col-lg-5">
@@ -256,7 +256,7 @@
                         </div>
                     </div>
 
-                    <a href="#js-form-content-2"><img src="/images/arrow_down.svg" alt="Next" title="Next"
+                    <a href="#js-form-content-2"><img src="/wys/images/arrow_down.svg" alt="Next" title="Next"
                                                       class="arrow-next d-none d-lg-block"></a>
                 </div>
             </div>
@@ -264,7 +264,7 @@
                 <div id="js-form-content-2" class="text-center">
                     <div class="empty-top"></div>
 
-                    <img class="pt-2" src="/images/noun-chat-781945.svg" alt="Your story" title="Your story">
+                    <img class="pt-2" src="/wys/images/noun-chat-781945.svg" alt="Your story" title="Your story">
                     <div class="form-part-title">Your story</div>
                     <label for="js-title" class="mx-auto pt-3">Give your story a title</label>
                     <input required type="text" class="mx-auto" name="title" id="js-title">
@@ -275,7 +275,7 @@
                                   placeholder="Max 400 words"></textarea>
                     </div>
 
-                    <a href="#js-form-content-3"><img src="/images/arrow_down.svg" alt="Next" title="Next"
+                    <a href="#js-form-content-3"><img src="/wys/images/arrow_down.svg" alt="Next" title="Next"
                                                       class="arrow-next d-none d-lg-block"></a>
                 </div>
             </div>
@@ -283,7 +283,7 @@
                 <div id="js-form-content-3" class="text-center">
                     <div class="empty-top"></div>
 
-                    <img class="pt-2" src="/images/noun-camera-781947.svg" alt="Media" title="Media">
+                    <img class="pt-2" src="/wys/images/noun-camera-781947.svg" alt="Media" title="Media">
                     <div class="form-part-title"><a id="link-media-upload"></a>Media</div>
                     <div class="row justify-content-md-center">
                         <div class="col-12 col-xl-4">
@@ -312,7 +312,7 @@
                         </div>
                     </div>
 
-                    <a href="#js-form-content-4"><img src="/images/arrow_down.svg" alt="Next" title="Next"
+                    <a href="#js-form-content-4"><img src="/wys/images/arrow_down.svg" alt="Next" title="Next"
                                                       class="arrow-next d-none d-lg-block"></a>
                 </div>
             </div>
@@ -349,7 +349,7 @@
     </main>
 
     <footer class="pt-5 text-center">
-        <img src="/images/KingsLogo_WhitePink.svg" alt="Kings Education" title="Kings Education">
+        <img src="/wys/images/KingsLogo_WhitePink.svg" alt="Kings Education" title="Kings Education">
         <div class="copyright-info pt-3">&copy; Kings Education 2022</div>
     </footer>
 </div>

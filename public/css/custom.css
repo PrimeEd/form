@@ -1,21 +1,21 @@
 @font-face {
     font-family: Raleway;
-    src: url("/fonts/Raleway-v4020/Raleway-v4020-Medium.otf") format("opentype");
+    src: url("/wys/fonts/Raleway-v4020/Raleway-v4020-Medium.otf") format("opentype");
 }
 
 @font-face {
     font-family: RalewayBold;
-    src: url("/fonts/Raleway-v4020/Raleway-v4020-Bold.otf") format("opentype");
+    src: url("/wys/fonts/Raleway-v4020/Raleway-v4020-Bold.otf") format("opentype");
 }
 
 @font-face {
     font-family: BwDarius;
-    src: url("/fonts/BW-Darius_OTF/Bw-Darius-Regular.otf") format("opentype");
+    src: url("/wys/fonts/BW-Darius_OTF/Bw-Darius-Regular.otf") format("opentype");
 }
 
 @font-face {
     font-family: BwDariusBold;
-    src: url("/fonts/BW-Darius_OTF/Bw-Darius-Bold.otf") format("opentype");
+    src: url("/wys/fonts/BW-Darius_OTF/Bw-Darius-Bold.otf") format("opentype");
 }
 
 body {
@@ -28,7 +28,7 @@ html {
 }
 
 #js-top {
-    background-image: url("/images/Art_Design-2@2x.png");
+    background-image: url("/wys/images/Art_Design-2@2x.png");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
