@@ -9,7 +9,7 @@
 
 
     <link href="/wys/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/wys/css/custom.css?".uniqid()) }}" rel="stylesheet">
+    <link href="/wys/css/custom.css?{{ uniqid() }}" rel="stylesheet">
 
 
     <script src="/wys/libs/jquery/dist/jquery.min.js"></script>
@@ -125,15 +125,15 @@
         </section>
     </div>
 
-    <?php if (session('alert_ok', FALSE)): ?>
-    <div class="col-sm-12">
-        <div id="js-confirmation-box" class="alert alert-success alert-dismissible">
-            {{ session('alert_ok') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    </div>
-    <?php session()->forget('alert_ok'); ?>
-    <?php endif; ?>
+{{--    <?php if (session('alert_ok', FALSE)): ?>--}}
+{{--    <div class="col-sm-12">--}}
+{{--        <div id="js-confirmation-box" class="alert alert-success alert-dismissible">--}}
+{{--            {{ session('alert_ok') }}--}}
+{{--            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--    <?php session()->forget('alert_ok'); ?>--}}
+{{--    <?php endif; ?>--}}
 
     <?php if (session('alert_ko', FALSE)): ?>
     <div class="col-sm-12">

@@ -337,3 +337,9 @@ html {
     font-size: 16px;
     color: #ffffff;
 }
+
+.success-text {
+    font-family: RalewayBold;
+    font-size: 22px;
+    color: #ffffff;
+}
