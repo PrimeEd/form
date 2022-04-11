@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\GoogleDrive;
 use App\Mail\ContactUs;
+use App\Mail\UserConfirmation;
 use App\Models\Country;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -84,6 +85,8 @@ class Controller extends BaseController
 
     private function sendEmail($paramsEmail)
     {
-        return Mail::to($paramsEmail['to'])->send(new ContactUs($paramsEmail));
+        Mail::to($paramsEmail['data']['email'])->send(new UserConfirmation());
+        Mail::to($paramsEmail['to'])->send(new ContactUs($paramsEmail));
+        return true;
     }
 }

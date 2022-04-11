@@ -7,20 +7,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactUs extends Mailable
+class UserConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
-
-    private $params;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($params)
+    public function __construct()
     {
-        $this->params = $params;
     }
 
     /**
@@ -30,11 +27,10 @@ class ContactUs extends Mailable
      */
     public function build()
     {
-        $msg = $this->view('emails.contact-us', [
-            'data' => $this->params['data'],
-            'files' => $this->params['files']
+        $msg = $this->view('emails.user-confirmation', [
+
         ]);
-        $msg->subject('New submission for What\'s Your Story');
+        $msg->subject('Submission received for What\'s Your Story');
 
         return $msg;
     }
