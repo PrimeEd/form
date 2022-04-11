@@ -127,7 +127,7 @@
 
     <?php if (session('alert_ok', FALSE)): ?>
     <div class="col-sm-12">
-        <div class="alert alert-success alert-dismissible">
+        <div id="js-confirmation-box" class="alert alert-success alert-dismissible">
             {{ session('alert_ok') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -137,7 +137,7 @@
 
     <?php if (session('alert_ko', FALSE)): ?>
     <div class="col-sm-12">
-        <div class="alert alert-danger alert-dismissible">
+        <div id="js-confirmation-box" class="alert alert-danger alert-dismissible">
             {{ session('alert_ko') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>

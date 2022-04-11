@@ -79,7 +79,7 @@ class Controller extends BaseController
 
         $this->sendEmail($paramsEmail);
         Session::flash('alert_ok', 'Thank you for your submission!');
-        return redirect(route('homepage'));
+        return redirect(route('homepage', ['#js-confirmation-box']));
     }
 
     private function sendEmail($paramsEmail)
