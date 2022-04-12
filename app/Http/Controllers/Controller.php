@@ -39,25 +39,30 @@ class Controller extends BaseController
 
         if ($validator->fails()) {
             Session::flash('alert_ko', 'Invalid data on the form. Please try again!');
+
             return redirect(route('homepage', ['bypassed-js-validation']));
         }
 
         // Handle uploads or share link
         $googleDrive = new GoogleDrive();
         $files       = [];
-        if (request()->file('file_text')) {
-            $storage_path = request()->file('file_text')->store('uploads');
-            $full_path    = Storage::path($storage_path);
-            // Upload it
-            $files[] = $googleDrive->storeAndGetURL($full_path);
-            Storage::delete($storage_path);
+        if (request()->hasFile('file_text')) {
+            foreach (request()->file('file_text') as $file) {
+                $storage_path = $file->store('uploads');
+                $full_path    = Storage::path($storage_path);
+                // Upload it
+                $files[] = $googleDrive->storeAndGetURL($full_path);
+                Storage::delete($storage_path);
+            }
         }
-        if (request()->file('file_media')) {
-            $storage_path = request()->file('file_media')->store('uploads');
-            $full_path    = Storage::path($storage_path);
-            // Upload it
-            $files[] = $googleDrive->storeAndGetURL($full_path);
-            Storage::delete($storage_path);
+        if (request()->hasFile('file_media')) {
+            foreach (request()->file('file_media') as $file) {
+                $storage_path = $file->store('uploads');
+                $full_path    = Storage::path($storage_path);
+                // Upload it
+                $files[] = $googleDrive->storeAndGetURL($full_path);
+                Storage::delete($storage_path);
+            }
         }
         if (request()->post('share_link') && filter_var(request()->post('share_link'), FILTER_VALIDATE_URL)) {
             $files[] = request()->post('share_link');
@@ -88,6 +93,7 @@ class Controller extends BaseController
     {
         Mail::to($paramsEmail['data']['email'])->send(new UserConfirmation());
         Mail::to($paramsEmail['to'])->send(new ContactUs($paramsEmail));
+
         return true;
     }
 }

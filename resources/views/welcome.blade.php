@@ -292,15 +292,15 @@
                                 UPLOAD FILE
                             </button>
                             <input type="file" accept=".png,.jpg,.jpeg,.gif,.avi,.mp4,.mp3,.mpg" id="js-file-media"
-                                   style="display: none;" name="file_media">
+                                   style="display: none;" multiple="multiple" name="file_media[]">
                         </div>
                         <div class="col-12 col-xl-4">
                             <label class="mx-auto">Text document</label>
                             <button type="button" id="js-btn-upload-text" class="btn btn-pink-rounded w-100">
                                 UPLOAD FILE
                             </button>
-                            <input type="file" id="js-file-text" accept=".doc,.docx,.txt,.pdf" style="display: none;"
-                                   name="file_text">
+                            <input type="file" multiple="multiple" id="js-file-text" accept=".doc,.docx,.txt,.pdf" style="display: none;"
+                                   name="file_text[]">
                         </div>
                         <div class="col-12 col-xl-4">
                             <label for="js-share_link" class="mx-auto">Share link</label>
