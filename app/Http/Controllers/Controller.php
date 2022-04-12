@@ -92,7 +92,15 @@ class Controller extends BaseController
     private function sendEmail($paramsEmail)
     {
         Mail::to($paramsEmail['data']['email'])->send(new UserConfirmation());
-        Mail::to($paramsEmail['to'])->send(new ContactUs($paramsEmail));
+        // More than an email?
+        if (strpos($paramsEmail['to'], ';')) {
+            $emails = explode(';', $paramsEmail['to']);
+        } else {
+            $emails = [$paramsEmail['to']];
+        }
+        foreach ($emails as $email) {
+            Mail::to($email)->send(new ContactUs($paramsEmail));
+        }
 
         return true;
     }
