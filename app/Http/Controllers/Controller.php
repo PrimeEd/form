@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class Controller extends BaseController
 {
@@ -51,7 +52,8 @@ class Controller extends BaseController
                 $storage_path = $file->store('uploads');
                 $full_path    = Storage::path($storage_path);
                 // Upload it
-                $files[] = $googleDrive->storeAndGetURL($full_path);
+                $name = $this->generateName($file->getClientOriginalName(), $file->getClientOriginalExtension());
+                $files[] = $googleDrive->storeAndGetURL($full_path, $name);
                 Storage::delete($storage_path);
             }
         }
@@ -60,7 +62,8 @@ class Controller extends BaseController
                 $storage_path = $file->store('uploads');
                 $full_path    = Storage::path($storage_path);
                 // Upload it
-                $files[] = $googleDrive->storeAndGetURL($full_path);
+                $name = $this->generateName($file->getClientOriginalName(), $file->getClientOriginalExtension());
+                $files[] = $googleDrive->storeAndGetURL($full_path, $name);
                 Storage::delete($storage_path);
             }
         }
@@ -103,5 +106,10 @@ class Controller extends BaseController
         }
 
         return true;
+    }
+
+    private function generateName(string $originalFilename, string $originalExtension)
+    {
+        return date('Y-m-d').'_'.Str::slug(request()->post('name', 'user')).'_'.Str::slug(str_replace('.'.$originalExtension, '', $originalFilename)).'.'.$originalExtension;
     }
 }

@@ -30,15 +30,18 @@ class GoogleDrive
         $this->service = $service = new \Google_Service_Drive($this->client);
     }
 
-    public function storeAndGetURL($path)
+    public function storeAndGetURL($path, $name)
     {
         $file   = new DriveFile();
+        $file->setParents([config('custom.google.drive.upload_folder_id')]);
+        $file->setName($name);
+
         $result = $this->service->files->create(
             $file,
             [
                 'data'       => file_get_contents($path),
                 'mimeType'   => 'application/octet-stream',
-                'uploadType' => 'multipart'
+                'uploadType' => 'multipart',
             ],
         );
         $fileId = $result->getId();
