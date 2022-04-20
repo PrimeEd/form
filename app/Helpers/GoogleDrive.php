@@ -30,9 +30,20 @@ class GoogleDrive
         $this->service = $service = new \Google_Service_Drive($this->client);
     }
 
+    public function readFolder($debugOnly = false)
+    {
+        $optParams = [
+            'pageSize' => 10,
+            'fields'   => 'nextPageToken, files(id, name)'
+        ];
+        $results   = $this->service->files->listFiles($optParams);
+
+        return $results->getFiles();
+    }
+
     public function storeAndGetURL($path, $name)
     {
-        $file   = new DriveFile();
+        $file = new DriveFile();
         $file->setParents([config('custom.google.drive.upload_folder_id')]);
         $file->setName($name);
 
@@ -45,6 +56,7 @@ class GoogleDrive
             ],
         );
         $fileId = $result->getId();
+
         return 'https://drive.google.com/file/d/'.$fileId.'/view';
     }
 

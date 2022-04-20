@@ -23,4 +23,5 @@ Artisan::command('inspire', function () {
 
 Artisan::command('google:get_key', function () {
     $drive = new GoogleDrive();
+    dd($drive->readFolder());
 })->purpose('For auth user');
