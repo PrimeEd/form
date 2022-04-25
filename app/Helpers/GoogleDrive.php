@@ -68,6 +68,7 @@ class GoogleDrive
         $client->setAuthConfig($this->CLIENT_SECRET_PATH);
         $client->setAccessType('offline');
         $client->setRedirectUri('http://127.0.0.1/test');
+        $client->setPrompt('select_account consent');
 
         //return $client;
 
@@ -75,31 +76,24 @@ class GoogleDrive
         $credentialsPath = $this->CREDENTIALS_PATH;
         if (file_exists($credentialsPath)) {
             $accessToken = json_decode(file_get_contents($credentialsPath), true);
-        } else {
-            // Request authorization from the user.
-            $authUrl = $client->createAuthUrl();
-            printf("Open the following link in your browser:\n%s\n", $authUrl);
-            print 'Enter verification code: ';
-            $authCode = trim(fgets(STDIN));
+            $client->setAccessToken($accessToken);
+        }
 
-            // Exchange authorization code for an access token.
-            $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+        if ($client->isAccessTokenExpired()){
+            if ($client->getRefreshToken()) {
+                $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
+                file_put_contents($credentialsPath, json_encode($client->getAccessToken()));
+            } else {
+                $authUrl = $client->createAuthUrl();
+                printf("Open the following link in your browser:\n%s\n", $authUrl);
+                print 'Enter verification code: ';
+                $authCode = trim(fgets(STDIN));
 
-            // Store the credentials to disk.
-            if ( ! file_exists(dirname($credentialsPath))) {
-                mkdir(dirname($credentialsPath), 0700, true);
+                $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+                $client->setAccessToken($accessToken);
+                file_put_contents($credentialsPath, json_encode($client->getAccessToken()));
             }
-            file_put_contents($credentialsPath, json_encode($accessToken));
-            printf("Credentials saved to %s\n", $credentialsPath);
         }
-        $client->setAccessToken($accessToken);
-
-        // Refresh the token if it's expired.
-        if ($client->isAccessTokenExpired()) {
-            $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
-            file_put_contents($credentialsPath, json_encode($client->getAccessToken()));
-        }
-
         return $client;
     }
 
