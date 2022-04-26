@@ -23,7 +23,8 @@ class GoogleDrive
         // If modifying these scopes, delete your previously saved credentials
         // at ~/.credentials/drive-php-quickstart.json
         $this->SCOPES = implode(' ', [
-            \Google_Service_Drive::DRIVE,
+//            \Google_Service_Drive::DRIVE_APPDATA,
+            \Google_Service_Drive::DRIVE_FILE,
         ]);
 
         $this->client  = $this->__get_client();
